@@ -1,5 +1,5 @@
 require_relative 'receita' # nome do arquivo
-
+$id = 0
 def opcoes()
     
     puts "[1] Cadastrar uma receita"
@@ -19,6 +19,7 @@ receitas =[]
 # tomar uma decisão
 while (opcao != 3) do
     if (opcao == 1)
+        $id = $id + 1
         print "Digite o nome da sua receita: "
         nome = gets().chomp()
         print "Digite o modo de preparo: "
@@ -26,10 +27,11 @@ while (opcao != 3) do
     print "Digite o tipo da receita: "
     tipo = gets().chomp() 
         puts "Receita de #{nome} cadastrada com sucesso!"
-        receitas << Receita.new(nome,preparo, tipo )
+        receitas << Receita.new($id, nome,preparo, tipo )
     end
     if(opcao == 2)
     puts "receitas Cadastradas"
+    
     puts receitas
     end    
 puts "\n\n"
@@ -37,7 +39,7 @@ opcao = opcoes()
 
 end
 
-puts "Adeus"
+puts "Volte sempre!! \nComa seus vegetais"
 
 
 

@@ -12,4 +12,8 @@ class Receita
         #receita.each_with_index do |item, index|    
         return "##{@id} - #{@nome} ‑ #{@tipo}\n #{@preparo} "
         end    
+        def id()
+            #receita.each_with_index do |item, index|    
+            return @id
+            end   
     end

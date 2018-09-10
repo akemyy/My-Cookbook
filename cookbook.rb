@@ -36,8 +36,8 @@ while (opcao != 5) do
         nome = gets().chomp()
         print "Digite o modo de preparo: "
         preparo = gets().chomp() 
-    print "Digite o tipo da receita: "
-    tipo = gets().chomp() 
+        print "Digite o tipo da receita: "
+        tipo = gets().chomp() 
         puts "Receita de #{nome} cadastrada com sucesso!"
         $receitas << Receita.new($id, nome,preparo, tipo )
     end
@@ -54,12 +54,10 @@ while (opcao != 5) do
     if(opcao == 4)
         puts "receitas Cadastradas"
         puts $receitas
-
         puts "Escolha o número da receita que seja apagar: "
         del = gets().chomp().to_i()  
         puts busca_id(del)
         $receitas.delete(busca_id(del))    
-        puts $receitas
         end     
 puts "\n\n"
 opcao = opcoes()
@@ -68,12 +66,3 @@ end
 
 puts "Volte sempre!! \nComa seus vegetais"
 
-
-
-
-
-
-
-
-#Escolha uma opção: 2
-#1 ‑ Feijoada Vegana

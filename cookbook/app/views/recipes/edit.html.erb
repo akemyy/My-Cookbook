@@ -1,6 +1,7 @@
-<h1>Cadastrar Nova Receita</h1>
-<%= form_for(Recipe.new) do |f|%>
-   <div> 
+<h1>Editar Receita</h1>
+
+<%= form_for @receita do |f|%>
+    <div> 
     <%= f.label :title, 'Título'%>
     <%= f.text_field :title%>
    </div>
@@ -12,7 +13,6 @@
     <%= f.label :cuisine, 'Cozinha'%>
     <%= f.text_field :cuisine%>
    </div>   
-   
    <div> 
     <%= f.label :difficulty, 'Dificuldade'%>
     <%= f.text_field :difficulty%>
@@ -21,7 +21,6 @@
    <%= f.label :cook_time, 'Tempo de Preparo'%>
    <%= f.number_field :cook_time%>
   </div>   
- 
    <div> 
    <%= f.label :ingredients, 'Ingredientes'%>
    <%= f.text_field :ingredients%>
@@ -33,4 +32,3 @@
 
    <%= f.submit 'Enviar'%>
 <%end%>    
-

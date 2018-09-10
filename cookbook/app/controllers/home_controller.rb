@@ -1,5 +1,6 @@
 class HomeController < ApplicationController
-def welcome
-    @recipes = Recipe.all
-end
+    def welcome
+        @featured_recipes = Recipe.where(featured: true)
+        @other_recipes = Recipe.where(featured: false)
+    end
 end    

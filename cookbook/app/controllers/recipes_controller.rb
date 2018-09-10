@@ -4,15 +4,21 @@ class RecipesController < ApplicationController
     end
 
     def new
+        @recipe = Recipe.new
     end   
     
     def create
         # Receber uma receita
         recipe_params = params.require(:recipe).permit(:title,:recipe_type,:cuisine,:difficulty,
                                                       :cook_time,:ingredients,:cook_method)
-        recipe = Recipe.create(recipe_params)
-         # Redirecionar para a receia recem criada
-         redirect_to recipe_path(recipe.id) 
+        @recipe = Recipe.new(recipe_params)
+
+        if @recipe.save
+            redirect_to recipe_path(@recipe.id) 
+        else
+            # Redirecionar para a receia recem criada
+            render 'new'
+        end    
     end   
     
     def edit
@@ -26,9 +32,15 @@ class RecipesController < ApplicationController
         recipe_params = params.require(:recipe).permit(:title,:recipe_type,:cuisine,:difficulty,
         :cook_time,:ingredients,:cook_method)
 
-        @receita.update(recipe_params)
+        if @receita.update(recipe_params)
+            redirect_to recipe_path(@receita)
+        else
+            # Redirecionar para a receia recem criada
+            render 'edit'
+        end    
+        
         #leva o usuario para o show receita
-        redirect_to recipe_path(@receita)
+        
     end    
 
 end    

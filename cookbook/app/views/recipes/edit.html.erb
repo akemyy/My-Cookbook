@@ -1,5 +1,9 @@
 <h1>Editar Receita</h1>
 
+<%if @receita.errors.any? %>
+<p>Você deve informar todos os dados da receita</p>
+<%end%>
+
 <%= form_for @receita do |f|%>
     <div> 
     <%= f.label :title, 'Título'%>
